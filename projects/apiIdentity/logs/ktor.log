@@ -1,0 +1,22 @@
+[2023-10-23 06:46:14,223]-[main] INFO  Application - Autoreload is disabled because the development mode is off.
+[2023-10-23 06:46:14,779]-[main] INFO  Exposed - Preparing create tables statements took 33ms
+[2023-10-23 06:46:14,787]-[main] INFO  Exposed - Executing create tables statements took 8ms
+[2023-10-23 06:46:14,801]-[main] INFO  Exposed - Extracting table columns took 14ms
+[2023-10-23 06:46:14,806]-[main] INFO  Exposed - Extracting primary keys took 5ms
+[2023-10-23 06:46:14,822]-[main] INFO  Exposed - Extracting column constraints took 15ms
+[2023-10-23 06:46:14,822]-[main] INFO  Exposed - Preparing alter table statements took 35ms
+[2023-10-23 06:46:14,823]-[main] INFO  Exposed - Executing alter table statements took 1ms
+[2023-10-23 06:46:14,846]-[main] INFO  Exposed - Checking mapping consistence took 23ms
+[2023-10-23 06:46:14,867]-[main] INFO  [Koin] - Koin started with 5 definitions in 0.704723 ms
+[2023-10-23 06:46:14,876]-[main] INFO  Application - Application started in 0.676 seconds.
+[2023-10-23 06:46:14,982]-[DefaultDispatcher-worker-2] INFO  Application - Responding at http://0.0.0.0:8082
+[2023-10-23 07:00:50,171]-[main] INFO  Application - Autoreload is disabled because the development mode is off.
+[2023-10-23 07:00:50,760]-[main] INFO  Exposed - Preparing create tables statements took 34ms
+[2023-10-23 07:00:50,769]-[main] INFO  Exposed - Executing create tables statements took 9ms
+[2023-10-23 07:00:50,784]-[main] INFO  Exposed - Extracting table columns took 15ms
+[2023-10-23 07:00:50,789]-[main] INFO  Exposed - Extracting primary keys took 5ms
+[2023-10-23 07:00:50,806]-[main] INFO  Exposed - Extracting column constraints took 16ms
+[2023-10-23 07:00:50,806]-[main] INFO  Exposed - Preparing alter table statements took 37ms
+[2023-10-23 07:00:50,808]-[main] INFO  Exposed - Executing alter table statements took 2ms
+[2023-10-23 07:00:50,830]-[main] INFO  Exposed - Checking mapping consistence took 22ms
+[2023-10-23 07:00:50,850]-[main] INFO  [Koin] - Koin started with 5 definitions in 0.710428 ms

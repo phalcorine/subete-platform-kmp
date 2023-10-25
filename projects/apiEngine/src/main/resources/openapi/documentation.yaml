@@ -1,0 +1,377 @@
+openapi: "3.0.3"
+info:
+  title: "subete API"
+  description: "subete API"
+  version: "1.0.0"
+servers:
+- url: "https://subete"
+paths:
+  /:
+    get:
+      description: ""
+      responses:
+        "200":
+          description: "OK"
+          content:
+            text/plain:
+              schema:
+                type: "string"
+              examples:
+                Example#1:
+                  value: "Welcome to Subete (Todo) - Engine"
+  /api/todos/create:
+    post:
+      description: ""
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: "#/components/schemas/CreateTodoRequestDto"
+        required: true
+      responses:
+        "201":
+          description: "Created"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiDataResponse_Todo"
+              examples:
+                Example#1:
+                  description: ""
+                  value:
+                    data: "null"
+                    message: "Successful"
+        "401":
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "400":
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "409":
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "404":
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "500":
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+  /api/todos/delete/{uid}:
+    delete:
+      description: ""
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiDataResponse_ApiSuccessMessage"
+              examples:
+                Example#1:
+                  description: ""
+                  value:
+                    data: "null"
+                    message: "Successful"
+        "401":
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "400":
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "409":
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "404":
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "500":
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+  /api/todos/find/uid/{uid}:
+    get:
+      description: ""
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiDataResponse_Todo"
+              examples:
+                Example#1:
+                  description: ""
+                  value:
+                    data: "null"
+                    message: "Successful"
+        "401":
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "400":
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "409":
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "404":
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "500":
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+  /api/todos/list:
+    get:
+      description: ""
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiDataResponse_List<? extends Todo>"
+              examples:
+                Example#1:
+                  description: ""
+                  value:
+                    data: "null"
+                    message: "Successful"
+        "401":
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "400":
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "409":
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "404":
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "500":
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+  /api/todos/update/{uid}:
+    patch:
+      description: ""
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: "#/components/schemas/UpdateTodoRequestDto"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiDataResponse_ApiSuccessMessage"
+              examples:
+                Example#1:
+                  description: ""
+                  value:
+                    data: "null"
+                    message: "Successful"
+        "401":
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "400":
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "409":
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "404":
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "500":
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+components:
+  schemas:
+    CreateTodoRequestDto:
+      type: "object"
+      properties:
+        label:
+          type: "string"
+        content:
+          type: "string"
+        status:
+          type: "string"
+          enum:
+          - "DRAFT"
+          - "PENDING"
+          - "COMPLETED"
+          - "ARCHIVED"
+          - "UNKNOWN"
+    LocalDateTime:
+      type: "object"
+      properties: {}
+    Todo:
+      type: "object"
+      properties:
+        uid:
+          type: "string"
+        label:
+          type: "string"
+        content:
+          type: "string"
+        status:
+          type: "string"
+          enum:
+          - "DRAFT"
+          - "PENDING"
+          - "COMPLETED"
+          - "ARCHIVED"
+          - "UNKNOWN"
+        createdAt:
+          $ref: "#/components/schemas/LocalDateTime"
+        lastModifiedAt:
+          $ref: "#/components/schemas/LocalDateTime"
+        userUid:
+          type: "string"
+    ApiDataResponse:
+      type: "object"
+      properties:
+        message:
+          type: "string"
+    ApiDataResponse_Todo:
+      type: "object"
+      properties:
+        data:
+          $ref: "#/components/schemas/Todo"
+        message:
+          type: "string"
+    ApiErrorResponse:
+      type: "object"
+      properties:
+        message:
+          type: "string"
+    ApiSuccessMessage:
+      type: "object"
+      properties:
+        message:
+          type: "string"
+    ApiDataResponse_ApiSuccessMessage:
+      type: "object"
+      properties:
+        data:
+          $ref: "#/components/schemas/ApiSuccessMessage"
+        message:
+          type: "string"
+    ApiDataResponse_List<? extends Todo>:
+      type: "object"
+      properties:
+        data:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Todo"
+        message:
+          type: "string"
+    UpdateTodoRequestDto:
+      type: "object"
+      properties:
+        label:
+          type: "string"
+        content:
+          type: "string"
+        status:
+          type: "string"
+          enum:
+          - "DRAFT"
+          - "PENDING"
+          - "COMPLETED"
+          - "ARCHIVED"
+          - "UNKNOWN"

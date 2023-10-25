@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: subete@root
+      MYSQL_DATABASE: subete_identity_db
+      MYSQL_USER: subete
+      MYSQL_PASSWORD: subete@321
+    ports:
+      - "3308:3306"

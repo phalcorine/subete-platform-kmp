@@ -1,0 +1,17 @@
+ktor:
+  deployment:
+    port: 8082
+  application:
+    modules:
+      - io.andromadus.subete.identity.ServerKt.module
+database:
+  driverClassName: "com.mysql.cj.jdbc.Driver"
+  url: "jdbc:mysql://localhost:3308/subete_identity_db"
+  user: "subete"
+  password: "subete@321"
+rabbitmq:
+  host: "localhost"
+  username: "subete"
+  password: "subete@321"
+  queues:
+    general: "general"

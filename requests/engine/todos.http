@@ -1,0 +1,39 @@
+### [Engine] Todos / List all Todos
+GET http://localhost:8083/api/todos/list
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 56c9ab6e-39b0-4a0d-b8cd-2ee625866965
+
+### [Engine] Todos / Find a Todo by UID
+GET http://localhost:8083/api/todos/find/uid/c19a2521-c13d-46fc-9b2c-f39f525d18b4
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 56c9ab6e-39b0-4a0d-b8cd-2ee625866965
+
+### [Engine] Todos / Create a Todo
+POST http://localhost:8083/api/todos/create
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 56c9ab6e-39b0-4a0d-b8cd-2ee625866965
+
+{
+  "label": "Become Hokage!",
+  "content": "I want to become a Hokage someday...",
+  "status": "draft"
+}
+
+### [Engine] Todos / Modify a Todo
+PATCH http://localhost:8083/api/todos/update/c19a2521-c13d-46fc-9b2c-f39f525d18b4
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 56c9ab6e-39b0-4a0d-b8cd-2ee625866965
+
+{
+  "status": "completed"
+}
+
+### [Engine] Todos / Delete a Todo
+DELETE http://localhost:8083/api/todos/delete/c19a2521-c13d-46fc-9b2c-f39f525d18b4
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 56c9ab6e-39b0-4a0d-b8cd-2ee625866965

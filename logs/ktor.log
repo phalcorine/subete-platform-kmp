@@ -1,0 +1,15 @@
+[2023-10-25 06:30:18,126]-[main] INFO  Application - Autoreload is disabled because the development mode is off.
+[2023-10-25 06:30:18,786]-[main] INFO  Exposed - Preparing create tables statements took 33ms
+[2023-10-25 06:30:18,794]-[main] INFO  Exposed - Executing create tables statements took 8ms
+[2023-10-25 06:30:18,807]-[main] INFO  Exposed - Extracting table columns took 13ms
+[2023-10-25 06:30:18,812]-[main] INFO  Exposed - Extracting primary keys took 5ms
+[2023-10-25 06:30:18,829]-[main] INFO  Exposed - Extracting column constraints took 16ms
+[2023-10-25 06:30:18,829]-[main] INFO  Exposed - Preparing alter table statements took 35ms
+[2023-10-25 06:30:18,830]-[main] INFO  Exposed - Executing alter table statements took 1ms
+[2023-10-25 06:30:18,850]-[main] INFO  Exposed - Checking mapping consistence took 20ms
+[2023-10-25 06:30:18,869]-[main] INFO  [Koin] - Koin started with 8 definitions in 0.740085 ms
+[2023-10-25 06:30:18,983]-[main] INFO  Application - Application started in 0.884 seconds.
+[2023-10-25 06:30:18,983]-[main] INFO  Application - Application started: io.ktor.server.application.Application@d613308
+[2023-10-25 06:30:19,132]-[DefaultDispatcher-worker-1] INFO  Application - Responding at http://0.0.0.0:8082
+[2023-10-25 06:30:32,707]-[eventLoopGroupProxy-4-1] INFO  [Koin] - | Scope 'q:'org.koin.ktor.plugin.RequestScope'' not defined. Creating it ...
+[2023-10-25 06:30:32,835]-[eventLoopGroupProxy-4-1] INFO  Application - [32m200 OK[m: [36mGET[m - /api/auth/check-auth in 128ms

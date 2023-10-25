@@ -1,0 +1,285 @@
+openapi: "3.0.3"
+info:
+  title: "subete API"
+  description: "subete API"
+  version: "1.0.0"
+servers:
+- url: "https://subete"
+paths:
+  /:
+    get:
+      description: ""
+      responses:
+        "200":
+          description: "OK"
+          content:
+            text/plain:
+              schema:
+                type: "string"
+              examples:
+                Example#1:
+                  value: "Welcome to Subete (Todo) - Auth Server"
+  /api/admin/users/toggle-suspension/{userUid}:
+    get:
+      description: ""
+      parameters:
+      - name: "userUid"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiDataResponse_ApiSuccessMessage"
+              examples:
+                Example#1:
+                  description: ""
+                  value:
+                    data: "null"
+                    message: "Successful"
+        "401":
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "400":
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "409":
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "404":
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "500":
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+  /api/auth/check-auth:
+    get:
+      description: ""
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema: {}
+              examples:
+                Example#1:
+                  description: ""
+                  value:
+                    data: "null"
+                    message: "Successful"
+                Example#2:
+                  description: ""
+                  value:
+                    message: "Authentication not set!"
+  /api/auth/login:
+    post:
+      description: ""
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: "#/components/schemas/AuthLoginRequestDto"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiDataResponse_AuthLoginResponseDto"
+              examples:
+                Example#1:
+                  description: ""
+                  value:
+                    data: "null"
+                    message: "Successful"
+        "401":
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "400":
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "409":
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "404":
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "500":
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+  /api/auth/signup:
+    post:
+      description: ""
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: "#/components/schemas/AuthSignupRequestDto"
+        required: true
+      responses:
+        "201":
+          description: "Created"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiDataResponse_AuthSignupResponseDto"
+              examples:
+                Example#1:
+                  description: ""
+                  value:
+                    data: "null"
+                    message: "Successful"
+        "401":
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "400":
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "409":
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "404":
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+        "500":
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ApiErrorResponse"
+components:
+  schemas:
+    ApiSuccessMessage:
+      type: "object"
+      properties:
+        message:
+          type: "string"
+    ApiDataResponse:
+      type: "object"
+      properties:
+        message:
+          type: "string"
+    ApiDataResponse_ApiSuccessMessage:
+      type: "object"
+      properties:
+        data:
+          $ref: "#/components/schemas/ApiSuccessMessage"
+        message:
+          type: "string"
+    ApiErrorResponse:
+      type: "object"
+      properties:
+        message:
+          type: "string"
+    AuthenticatedUserDto:
+      type: "object"
+      properties:
+        uid:
+          type: "string"
+    ApiDataResponse_AuthenticatedUserDto:
+      type: "object"
+      properties:
+        data:
+          $ref: "#/components/schemas/AuthenticatedUserDto"
+        message:
+          type: "string"
+    AuthLoginRequestDto:
+      type: "object"
+      properties:
+        username:
+          type: "string"
+        password:
+          type: "string"
+    AuthLoggedInUserDto:
+      type: "object"
+      properties:
+        uid:
+          type: "string"
+        username:
+          type: "string"
+        fullName:
+          type: "string"
+    AuthLoginResponseDto:
+      type: "object"
+      properties:
+        accessToken:
+          type: "string"
+        user:
+          $ref: "#/components/schemas/AuthLoggedInUserDto"
+    ApiDataResponse_AuthLoginResponseDto:
+      type: "object"
+      properties:
+        data:
+          $ref: "#/components/schemas/AuthLoginResponseDto"
+        message:
+          type: "string"
+    AuthSignupRequestDto:
+      type: "object"
+      properties:
+        fullName:
+          type: "string"
+        username:
+          type: "string"
+        password:
+          type: "string"
+    AuthSignupResponseDto:
+      type: "object"
+      properties:
+        userUid:
+          type: "string"
+        suspended:
+          type: "boolean"
+    ApiDataResponse_AuthSignupResponseDto:
+      type: "object"
+      properties:
+        data:
+          $ref: "#/components/schemas/AuthSignupResponseDto"
+        message:
+          type: "string"

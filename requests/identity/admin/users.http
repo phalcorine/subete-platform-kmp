@@ -1,0 +1,4 @@
+### [Identity] Admin / Users / List Users
+GET http://localhost:8082/api/admin/users/toggle-suspension/69998b90-c0e8-40a3-9e97-8a343be9c9a8
+Accept: application/json
+Content-Type: application/json

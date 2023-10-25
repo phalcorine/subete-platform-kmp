@@ -1,0 +1,26 @@
+### [Identity] Auth / Signup
+POST http://localhost:8082/api/auth/signup
+Accept: application/json
+Content-Type: application/json
+
+{
+  "full_name": "Uzumaki Naruto",
+  "username": "naruto.uzumaki@konohamail.com",
+  "password": "rasengan"
+}
+
+### [Identity] Auth / Login
+POST http://localhost:8082/api/auth/login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "naruto.uzumaki@konohamail.com",
+  "password": "rasengan"
+}
+
+### [Identity] Auth / Check Auth
+GET http://localhost:8082/api/auth/check-auth
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 7f45e7ea-8ee9-499f-8ab3-60ffe388763d
